@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-z5yApuZUa3kFeV4Y4Fz3c8F6tZ1M8k6phfJp5tUKkkW5KpNHIHpYGni/MmtLBRwi3vn+sDG/DnT8RQWfhlGq9XQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+       /* body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }*/
+         body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        .icon-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .icon-box {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icon-box:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-box i {
+            font-size: 50px;
+            color: #3498db;
+        }
+
+        .icon-box p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        .app-header {
+		    background-color: #3498db; /* Blue */
+		    padding: 10px;
+		    color: #ffffff; /* White */
+		}
+        
+
+        .info-section {
+            text-align: center;
+            padding: 30px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 0 0 10px 10px;
+        }
+
+        @media (max-width: 768px) {
+            .icon-section {
+                flex-direction: column;
+            }
+        }
+        
+        
+    </style>
+    <title>Student Feedback System</title>
+</head>
+<body>
+	 <div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home </a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+    <h1>Welcome</h1>
+
+    <div class="icon-section">
+        <div class="icon-box">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADdElEQVR4nO1az08TURB+B4PRgzHhoBfQA3pAE+h7W8QfiXjwrn+Axhg18eDVI54UPZhAMLZvinjnYiKYiNGTMREjaDj446BEBCWRdmbBEIKaNbP7tkJtKe1Wd5fwJS9p33Zf59uZNzO73wqxgZhC6VyjAnqsgOYV4LDVn20QccPRK84mCfhCATn5ofGhiBukpk5DYKI1lWvhzxJoQcQJVh8mFOCSAvylNB6z+rL7PSL4VcQFTT3OZgU07nkDe3hOQe60+T4k4gKp6bp79TW+a785uYXnlMZBb4/QRREHSLDbpcafXkjljvBcy13crgAXef5AZn6HiDqUnt4qNb43IXTNn7c0njUeeiTiAAXUbbLUOO+TP/M4ZFLvORF1qAx2uOEEuMQZa8UxTegRyTWK6IcUffTChzr/Og74dkVRLDY0TSvAruYBpy4cFsLNSJeNQa+5mhcetzQlpaYxCfijLKFle+u/QwI+M3vgRLVrWNo+5HtGhAUJOMtGJHvt+iDr+F5p65ndVjvrqjBABITUOGL6sTsizkRaU/YeE14o4kwkCfbeUBtLVSMiCmjUZK7btbEstD1CY6aVSYn1sEdkWKEl3W6XnKBV2d8jhZud15VANxTgl/IFlfKD7ZKaPkvAdEsKd6+BCE26J2ZIBSHi398Xpl///ibIkJrmVIaOlzMgba7k/X9REL0+jJxE2j5YyXrNA05dIk0W22UukJ3oy+0qeQK7zWXstSmD3FtVGmYqM3fYEJlaPs+karEHlU+mXCJhtzHjoCGgNF5dvi6HmUnJz4MQsTQlzX98Kvtjdhsz5h/7CaCCMcUkCj2pgMgNqww1BSHSPODU+QlAhAGpcYYN4NQclTJRFYyH2YBREWsikM+IL+PukZl1EVrKPLiIPRFp0i/fdMWaSFuNCmKy16439eibCAt+i8IPKKpdQwKeNBfkqQgL/LxrjZ3uGFfwooKTplemsb0QDot8VcYu3zNlWpw3pQQnqelDqA8AK9AqHakxW1JwymCHiDok4PlCIWml4ETdIg5Qmp6Y2+QzqwlOkUby1vedRlxaZFGplOAUeSigSyZ87q0mOEUeUuMDU2dO8XcWYIsJTpGHNI1lErL7WAovJThFHhJowWss3ZcSJkoJTpGHAhwuqPIjxQSnyMPqzzbwOy784g4rx7F8cWcDwsNv9cT5PC9ti5EAAAAASUVORK5CYII=">
+            
+            <p>Anonymous Feedback</p>
+        </div>
+
+        <div class="icon-box">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADlUlEQVR4nO2Zy08TURTGJyR2pRuNicEERYPVqgnTuZ0BEuMjUURd8w9gXGkAcc/ChehOJMA8jHEJ0YiuxEBMuwESpI0hUQtlYURDyrwFAkKvufQpLUnnRTv2fsm3mXRuz/ndc85MbwkCCwsLCwsLCwsLCwsL61/diSon785rH+4v6HrXgg7Nuj2mQyYi7bFFmQ5Lr5gZtY4wm3xnTFetJJ52W1QrAYCk6bAoNoSXjxoGcG9OG0PBP/z+G35b3YR/EjCjzQSEH5X1ogG0zColA7ANISINGQbQGdNWUPBfVzdhISEgD4pIvvWLWtLkU1YMA+hKJbCRs/PFVkBHTIe357SS73yuTQPYygFwZjwKPU9HIPFkyLQ9vSPQOxbNCxBdc2pt2wB4eq0FmA30bV6ATq5tGwDChgDTzgvQwbUxgIiFCthIZAef2yqA/iRBZkqC9JQFAKPyOlzbSsBxed1dAKYlyEzKGZsG0JVjtwDY3vmc5CsOADPlEACPSx6DtFMAvOhlxWKgKEDv2FzhFyG71t6RvG0AmDJ4pS3KGICMK4DBLSDbOwPaY6kh6IZfg060QFtUc81j0BEALbOKLQHuyYuQ3QBaU8daFQWgo8CxVkUBYAodKmAAQ7gCiEpuAU8lPQaZAgBc8WtwdN45AEwZOPecr1Ciu9kwADosaaVONs87zvmKNT0p6SYqQHxTdjtvIvkkAPmdYQCNn+On0X/spU48Y4Mln0l+QlboiFxLmBE1LdXQYfE1HZb0UgMw2vP0hLRCT0rv6ZllH7HXGvbNegQQfCyA0E8BhKAV8yC4yINgD1qTcIt4EOyxmngBED2EWyTYsPN5AKjQL8It4kFw0X4AwR9EJbeAAEKPCLdo2DfrQRDsqARXDkEsLCys/1/dsMrXt7S/gVcOBvqWjpB90rH6AbUO9IvngCCT5KDY6OekC8iA1S76OfkKMsUq1/yc0kzyynU/p95CBqzagq4lrac+J1/O3q82kYMKoFjpPBDiXubF2nFSWKkOvFQPNQnxAxQ7vc/ZXLthVf1z7TD6copdZrYDFNSb6QTKwRSvXAWs2IQ2gBTi1b5haM9jE/QrJ/yc2FzqBI0DUW+AfplElWoJAM3JtZSAytZ9AAKcXG8ZQG4LBDj1FDWg0MkeLb8WIAW1McDpZ8lnNrYAsZt2DEGKXa1BQxAFgIYgxapMdohJBoZg6nO8fCl9P0osPQTRJtg5BP8Cani8O/BMPwIAAAAASUVORK5CYII=">
+            
+            <p>User-friendly Interface</p>
+        </div>
+
+        <div class="icon-box">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFBklEQVR4nO1aaWhcVRS+qVYr7j9cirsWlKhJ5p6XWBQMdYlIVaRScQPFH4r+8IfggltUcLfSaGjm3Jca3GiNKLiAxSoW64644I6i1mprbDLnTBKt0eqT8+a8mWmzzMybSd4U8sH7keS+8853z3rPjTGzmMUsZhadwRzwuc06ugEcL7eOVskDjroA+ZKTe7fsbeoZC7qC3UV5i/QbOA4me6yjQXB8salHeI8PHWaRvskri/StdfQYYPY6D/ki6/jCkKTjdbk19K91/KL83gRBg6kHtHaPHgyOvs8R4M895DOmWg/It+9gpdeb+2i/mdN4EoDjft3ld9u6BvcxpRAEDW2OjgLkawpuSK+YJOH1Zo8FpP8AebTNDR5a6fvNPXSkxkwAyB0mKVjHt6h7+FXLQHraJAVAelmUSPm0JK4Mr3foBN2MH01SkOAWJVp6hhvjymjsHthL0/I/S/uDXUwSAEdfhhbpzRwRV0Z7Z7BrlMEWLvt5D7OzWkSsIAkjUYtY5I9Di6TZiysjTMU5i2wwSQGQntXUuTS+DO7QbuBtkxQs8h1a0O6LKwOQb1UZXSYpeEgXaA1YE1cGIL8lMkSWSQrW0RXqFkNxmr+T/JGDwNHf1daiqmEdfagxcnXsjOXoLpXxgkkKkmlUiWNiy/CHT9Gstb622lWiBNKaHJHM5XFlWJ+vSrzXssjXRjUAkG+u9H11q19yLQpfapJCe18wDxy9r+nz64peDoIGQCYlsQ4wmGuShBymJPNYpG3SAJb7XsrnBboBA439wW6mHgBaC2RKUu47OmWRrneVqRdYDVhJx+XUE7GAnD9y5LOLTb2gvS+YZ5E3auA/VGo9ID2laz+VOVi53/FW8tEW+TlwtAUcMyA/X03qnxCpdOZc9flNpdbmx0Y+Q9nyfVpiHf85flZGA9Wch8Yrh6PzNU5+LblWlaiEBGgrY5F/kNYmtI7jtUrmmaoJTDcRQDo/IiGDPY3FdC59Zw7P93r1TMTDzHmANKaV/87tLOMonRsOht8crRkR6/gs3bW/mlaMHDjZuuaewUMiIq1u6PjJ5WXPyZNwdHf0+2IyhcwX/xgx/pSH9HtREG4AR9fLqEem74CZfVt6Ms0yw7KONhdmxLzRw0z7eHnZxbIhquQ9EwY+0jb9+5iH3Bpfe/FRn88ER6+G00YdfcrodKppfKEl4TeKCN0fifUwe3aexCQnT3GzyKUAaVHsmuEhXQnIn+WVE4GOb5LzhTzi2+GdCNJX4HjEOs5a5C8s8hNCPrxDwWCuKCQDDPH1yD0t0lYl+0ApEql05tSKCYjfg6N7tRhFOXyTTNdbVg4fEGtXtlOQOyIS4PjhmpPQudONFnm4YAF6L+VnL6tVsydXEVGxs44fqTkJubewyG8W+fbaamZYE8E6Oq2oYi+vOYlctuGPotoghalWyhcpuAgc/6FF7dGJGs6qY8Ii9agbfRfn7qMUJO1qkpBvdE8LCS9/gUNjUxWtuJBZcYEE47SQEADyg/meZhog9aGorqzf8coOakFCPxQWtVSaTjfTAIv8SVSVNT4+OHEF719TErkP0VCp6lzpIwUxp+jo/PAaAWmrddmFUWsTTvYx5wk1ISEX/7UmUXxyLBqzviY/p/xMU3jaK+oSUtWSmAkA0mpV+CVAdoD8005HwnQGc8a5LdKY/kfEbYDDxyWtYlmQdsc6ekcaTou8TDrdpic371kL4f8DO79RPfkxsgEAAAAASUVORK5CYII=">
+           
+            <p>Customize Batches</p>
+        </div>
+
+        <div class="icon-box">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2YTYrCQBCFc7BAlinyNwou5iZzhY7pRGQW49YbuBiEOYBp0kn0AAqzHFeDi0A2phUP4MKgRbX2g7ds+KiiHo+2LKMHKOBy4zJxwnKQFOubAC+PljuFZpeJ03MAQpw7YSqr0bRuSQECE3bEpRhOyib+2avvbUdrgkAdkPyKtTkSbQCDpFhjBnWYFPVNgEYvJT/BLQ7euEdxmFUdmt0+kUMSEOLc8bmsBpO6JQUITNg+lyLKyuZj8ae+yiOtCQJ1QPIr1uZItAH0xrjFwTPFweiKohS3NIRpj9Lwe1BodvvEDUlAiHNnkMnq/bNuSQECE/ZbJsVoWjbz1V7t/jtaEwTqgORXrM2RaAMYprilIeLmt8G6i85dl6YF59/XuQAAAABJRU5ErkJggg==">
+            
+            <p>Review Feedbacks</p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <p>
+            Our StudentVoice is designed to provide an anonymous platform for users to share their thoughts. With a user-friendly interface, customizable batch options, and the ability to review feedback, we aim to enhance the overall learning experience.
+        </p>
+    </div>
+    
+    	
+    
+     <!-- Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

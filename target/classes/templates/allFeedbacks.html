@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>All Feedbacks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .app-header {
+            background-color:#3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body >
+	 <div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+    <h2 class="text-center">All Feedbacks</h2>
+<div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Batch</th>
+                <th>Trainer Name</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="feedback : ${allFeedbacks}">
+                <td th:text="${feedback.stdid}"></td>
+                <td th:text="${feedback.name}"></td>
+                <td th:text="${feedback.email}"></td>
+                <td th:text="${feedback.course}"></td>
+                <td th:text="${feedback.batch}"></td>
+                <td th:text="${feedback.trainerName}"></td>
+                <td th:text="${feedback.feedback}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+     <hr>
+
+		<a th:href="@{/signup/userhome}">Back to User home</a>
+
+</div>
+    <!-- Bootstrap JS and Popper.js are required for Bootstrap components -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

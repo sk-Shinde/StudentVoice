@@ -1,0 +1,137 @@
+
+	
+	<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff; /* White */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+        
+         .app-header {
+            background-color: #3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+        h2 {
+            color: #007bff; /* Blue */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #343a40; /* Dark Gray */
+        }
+
+        input,
+        textarea {
+            border: 1px solid #ced4da; /* Light Gray */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff; /* Blue */
+            color: #fff; /* White */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker Blue on Hover */
+        }
+    </style>
+</head>
+
+<body >
+	 <div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+	
+ <div class="container mt-4">
+    <h2 class="text-center">Feedback Form</h2>
+    <form th:action="@{/feedbackForm}" th:object="${feedbackForm}" method="post">
+
+        <div class="form-group">
+            <label for="name">Student Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Student Email:</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <input type="text" class="form-control" id="course" th:field="*{course}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="batch">Batch:</label>
+            <input type="text" class="form-control" id="batch" th:field="*{batch}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="trainerName">Trainer Name:</label>
+            <input type="text" class="form-control" id="trainerName" th:field="*{trainerName}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <textarea class="form-control" id="feedback" th:field="*{feedback}" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+         <a th:href="@{/home}">Back to Home</a>
+    </form>
+</div> 
+    <!-- Bootstrap JS and Popper.js are required for Bootstrap components -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+

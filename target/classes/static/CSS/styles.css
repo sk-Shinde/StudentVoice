@@ -1,0 +1,136 @@
+body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff; /* White */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .app-header {
+            background-color: #3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+        .display-4 {
+            color: #007bff; /* Blue */
+        }
+
+        hr {
+            border-top: 2px solid #007bff; /* Blue */
+            margin: 20px 0;
+        }
+
+        a {
+            color: #007bff; /* Blue */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        
+        
+        
+      /*  <!-- about -->*/
+        
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        .icon-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .icon-box {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icon-box:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-box i {
+            font-size: 50px;
+            color: #3498db;
+        }
+
+        .icon-box p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+      /*  .app-header {
+            background-color: #3498db; /* Green 
+            padding: 10px;
+            color: #ffffff; /* White 
+        }
+		*/
+        .info-section {
+            text-align: center;
+            padding: 30px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 0 0 10px 10px;
+        }
+
+        @media (max-width: 768px) {
+            .icon-section {
+                flex-direction: column;
+            }
+        }
+        
+    
+    /* allFeedbacks.html */
+   
+        h2 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    
