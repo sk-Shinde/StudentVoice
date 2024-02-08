@@ -1,0 +1,109 @@
+
+	<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+           .app-header {
+            background-color: #3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+       
+
+        h1 {
+            color: #ffffff; /* White text */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Blue */
+            border-color: #007bff; /* Blue */
+            color: #ffffff; /* White */
+            margin: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker Blue on Hover */
+            border-color: #0056b3; /* Darker Blue on Hover */
+        }
+
+        .btn-outline-danger {
+            color: #dc3545; /* Red */
+            border-color: #dc3545; /* Red */
+            margin-top: 10px;
+        }
+
+        .btn-outline-danger:hover {
+            color: #721c24; /* Darker Red on Hover */
+            background-color: #f8d7da; /* Light Red Background on Hover */
+            border-color: #f5c6cb; /* Light Red Border on Hover */
+        }
+    </style>
+</head>
+
+<body>
+   <div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+
+
+
+    <!-- Content Area -->
+    <div class="container w-100 text-center d-flex flex-column align-items-center mt-2">
+        <a th:href="@{/BatchIndex}" class="btn btn-primary">Show Batch</a>
+        <br>
+        <a th:href="@{/allFeedbacks}" class="btn btn-primary">Show Feedbacks</a>
+
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}" class="btn btn-outline-danger mt-2">Logout</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
+

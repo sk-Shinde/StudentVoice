@@ -1,0 +1,173 @@
+	
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 5%;
+        }
+          .app-header {
+            background-color: #3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+
+        .bg-light {
+            background-color: #ffffff; /* White */
+        }
+
+        .border-2 {
+            border-width: 2px;
+        }
+
+        .border-dark {
+            border-color: #343a40 !important; /* Dark Gray */
+        }
+
+        .rounded {
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #007bff; /* Blue */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #343a40; /* Dark Gray */
+            font-weight: bold;
+        }
+
+        input.form-control {
+            border: 1px solid #ced4da; /* Light Gray */
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Blue */
+            border-color: #007bff; /* Blue */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker Blue on Hover */
+            border-color: #0056b3; /* Darker Blue on Hover */
+        }
+
+        a {
+            color: #007bff; /* Blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+  
+  
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 bg-light border border-2 border-dark py-2 px-5 rounded mb-5">
+                <div th:if="${param.success}" class="alert alert-info">You've successfully registered</div>
+                <h2 class="text-center mb-4">Signup Form for User</h2>
+
+                <form action="#" th:action="@{/signup}" th:object="${user}" method="POST" enctype="multipart/form-data">
+                    <!-- Profile Photo Upload -->
+                    <!-- <div class="form-group">
+                        <label for="profilePhoto">Profile Photo</label>
+                        <input type="file" th:field="*{photo}" class="form-control-file" id="profilePhoto">
+                    </div> -->
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Enter your Firstname and Lastname" required autofocus="autofocus">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="name">Email</label>
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Enter your Email" required autofocus="autofocus">
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="form-group">
+                        <label for="contact">Contact</label>
+                        <input type="text" th:field="*{contact}" class="form-control" id="contact" placeholder="Enter your contact number" required autofocus="autofocus">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password" required autofocus="autofocus">
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label for="about">Location</label>
+                        <input type="text" th:field="*{location}" class="form-control" id="location" placeholder="Enter your location" required autofocus="autofocus">
+                    </div>
+
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="submit" class="btn btn-primary">Signup</button>
+                        <div class="ml-3">
+                            <p>Already Signed up? <a th:href="@{/login}">Login</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

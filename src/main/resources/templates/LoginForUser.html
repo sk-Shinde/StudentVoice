@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 5%;
+        }
+         .app-header {
+            background-color: #3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+        .bg-light {
+            background-color: #ffffff; /* White */
+        }
+
+        .border-2 {
+            border-width: 2px;
+        }
+
+        .border-dark {
+            border-color: #343a40 !important; /* Dark Gray */
+        }
+
+        .rounded {
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #007bff; /* Blue */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #343a40; /* Dark Gray */
+        }
+
+        input {
+            border: 1px solid #ced4da; /* Light Gray */
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Blue */
+            border-color: #007bff; /* Blue */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker Blue on Hover */
+            border-color: #0056b3; /* Darker Blue on Hover */
+        }
+
+        .alert {
+            margin-top: 10px;
+        }
+
+        a {
+            color: #007bff; /* Blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 bg-light border border-2 border-dark py-2 px-5 rounded">
+                <h2 class="text-center mb-4">Login Form for User</h2>
+
+                <form th:action="@{/login}" method="post">
+                    <div th:if="${param.error}" class="alert alert-danger">Invalid username or password.</div>
+                    <div th:if="${param.logout}" class="alert alert-info">You've been logged out</div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your registered email">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="ml-3"><p class="">Not Registered? <a th:href="@{/signup}">Register</a></p></div>
+                        
+                    </div>
+				
+                </form>
+              <div class="text-center">
+    				<a th:href="@{/home}">Back to Home</a>
+			</div>
+
+            </div>
+            
+        </div>
+                 
+    </div>
+
+    <!-- Bootstrap JS and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

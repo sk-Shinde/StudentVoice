@@ -1,0 +1,149 @@
+		
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentVoice</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light Gray */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff; /* White */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+         .app-header {
+            background-color: #3498db; /* Green */
+            padding: 10px;
+            color: #ffffff; /* White */
+        }
+
+        h1, h2 {
+            color: #007bff; /* Blue */
+            text-align: center;
+        }
+
+        hr {
+            border-color: #007bff; /* Blue */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input.form-control {
+            border: 1px solid #ced4da; /* Light Gray */
+            border-radius: 5px;
+        }
+
+        .btn-info {
+            background-color: #17a2b8; /* Teal */
+            border-color: #17a2b8; /* Teal */
+        }
+
+        .btn-info:hover {
+            background-color: #117a8b; /* Darker Teal on Hover */
+            border-color: #117a8b; /* Darker Teal on Hover */
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; /* Gray */
+            border-color: #6c757d; /* Gray */
+        }
+
+        .btn-secondary:hover {
+            background-color: #495057; /* Darker Gray on Hover */
+            border-color: #495057; /* Darker Gray on Hover */
+        }
+    </style>
+</head>
+
+<body>
+	 <div class="app-header">
+		        <div class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="#">StudentVoice</a>
+		  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    				<span class="navbar-toggler-icon"></span>
+		  			</button>
+		  
+		  		<div class="collapse navbar-collapse" id="navbarNav">
+		   			 <ul class="navbar-nav ml-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+		      		</li>
+		     		<li class="nav-item">
+		        		<a class="nav-link" href="/about">About</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/login">Admin</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/showfeedbackForm">FeedBack</a>
+		      		</li>
+		    		</ul>
+		  		</div>
+		  </div>
+		  
+		 </div>
+  
+  
+    <div class="container">
+        <h1>StudentVoice</h1>
+        <hr>
+        <h2>Update Batch</h2>
+
+        <form action="#" th:action="@{/save}" th:object="${batch}" method="POST">
+
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{name}" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="trainerName" class="col-sm-2 col-form-label">Trainer Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{trainerName}" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-info">Update Batch</button>
+                </div>
+            </div>
+        </form>
+
+        <hr>
+
+       <!-- <a href="@{/BatchIndex}" class="btn btn-secondary">Back to Batch List</a> -->
+        <a th:href="@{/BatchIndex}">Back to Batch List</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+										
